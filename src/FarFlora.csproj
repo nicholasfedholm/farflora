@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>FarFlora</AssemblyName>
+    <RootNamespace>FarFlora</RootNamespace>
+    <Version>1.0.0</Version>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <Deterministic>true</Deterministic>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <!-- Game install used for reference assemblies. Override with -p:VSDir=... or the VSDir env var. -->
+    <VSDir Condition="'$(VSDir)' == ''">$(LOCALAPPDATA)\Programs\Optimum</VSDir>
+    <!-- Patched VintagestoryLib that the game loads. -->
+    <OptimumCache Condition="'$(OptimumCache)' == ''">$(APPDATA)\VintagestoryData\.optimum\cache</OptimumCache>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony"><HintPath>$(VSDir)\Lib\0Harmony.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="VintagestoryAPI"><HintPath>$(VSDir)\VintagestoryAPI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="VintagestoryLib"><HintPath>$(OptimumCache)\VintagestoryLib.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="modinfo.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

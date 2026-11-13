@@ -1,0 +1,12 @@
+{
+  "type": "code",
+  "modid": "farflora",
+  "name": "FarFlora",
+  "version": "1.0.0",
+  "side": "Client",
+  "requiredOnClient": false,
+  "requiredOnServer": false,
+  "authors": ["Nick"],
+  "description": "Client-side far plant LOD: skips grass, flowers and ferns in distant chunks to cut mesh and draw cost.",
+  "dependencies": { "game": "1.22.0" }
+}
